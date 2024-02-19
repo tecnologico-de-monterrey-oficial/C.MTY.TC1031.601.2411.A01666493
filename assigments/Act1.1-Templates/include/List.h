@@ -51,23 +51,26 @@ int List<T>::getSize(){
     return size;
 }
 
-
 // Returns the maximum value in the list
 template <class T>
 T List<T>::getMax() {
-    T maxVal = data[0];
-    for (int i = 1; i < size; i++) {
-        if (data[i] > maxVal) {
-            maxVal = data[i];
+    if (size > 0){
+        T maxVal = data[0];
+        for (int i = 1; i < size; i++) {
+            if (data[i] > maxVal) {
+                maxVal = data[i];
+            }
         }
+        return maxVal;
+    }else{
+        throw out_of_range("List is empty");
     }
-    return maxVal;
 }
 
 template <class T>
 void List<T>::print(){
     for(int i = 0; i < size; i++){
-        cout << data[i] << " ";
+        cout << "[" << i << "] " << data[i] << " - ";
     }
     cout << endl;
 }
