@@ -32,8 +32,12 @@ void List<T>::insert(T a){
 
 template <class T>
 void List<T>::removeLast(){
-    data.pop_back();
-    size--;
+    if (size > 0) {
+        data.pop_back();
+        size--;
+    }else{
+        cout << "List is empty" << endl;
+    }
 }
 
 template <class T>
