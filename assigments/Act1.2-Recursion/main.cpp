@@ -48,24 +48,17 @@ int fibonacciRecursive(int n){
 
 
 int bacteriaGrowthIterative(int days) {
-    int bacteria = 1;
+    int bacterias = 1;
     for (int day = 1; day <= days; day++) {
-        int births = bacteria * 378 / 100;
-        int deaths = bacteria * 234 / 100;
-        bacteria += births - deaths;
-        bacteria = max(bacteria, 0);
+        bacterias = bacterias * (1 + 3.78 - 2.34);
     }
-    return bacteria;
+    return bacterias;
 }
 
 
 int bacteriaGrowthRecursive(int days) {
     if (days == 0) return 1;
-    int previousDayBacteria = bacteriaGrowthRecursive(days - 1);
-    int births = previousDayBacteria * 378 / 100;
-    int deaths = previousDayBacteria * 234 / 100;
-    int currentBacteria = previousDayBacteria + births - deaths;
-    return max(currentBacteria, 0);
+    return bacteriaGrowthRecursive(days - 1) * (1 + 3.78 - 2.34);
 }
 
 
