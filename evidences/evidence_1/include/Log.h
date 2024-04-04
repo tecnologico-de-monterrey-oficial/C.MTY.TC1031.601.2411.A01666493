@@ -1,4 +1,3 @@
-#pragma once
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -84,36 +83,67 @@ public:
             logs[j + 1] = key;
         }
     }
-    static std::vector<Log> searchByDateTimeRange(
-        const std::vector<Log>& logs, 
-        const std::string& startDateTime, 
-        const std::string& endDateTime) {
-        std::vector<Log> result;
+    static std::vector<Log> findLogsInDateRange(const std::vector<Log>& logs, const std::string& startDateTime, const std::string& endDateTime) {
+        std::vector<Log> logsInRange;
+        std::tm startTm = {};
+        std::tm endTm = {};
+        std::istringstream startStream(startDateTime);
+        std::istringstream endStream(endDateTime);
 
-        int low = 0, high = logs.size() - 1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (logs[mid].getKey() < startDateTime)
-                low = mid + 1;
-            else
-                high = mid - 1;
-        }
-        int startIndex = low;
+        startStream >> std::get_time(&startTm, "%b %d %Y %T");
+        endStream >> std::get_time(&endTm, "%b %d %Y %T");
 
-        low = 0, high = logs.size() - 1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (logs[mid].getKey() <= endDateTime)
-                low = mid + 1;
-            else
-                high = mid - 1;
-        }
-        int endIndex = high;
-
-        for (int i = startIndex; i <= endIndex; ++i) {
-            result.push_back(logs[i]);
+        if (startStream.fail() || endStream.fail()) {
+            std::cerr << "Error: Date range not provided." << std::endl;
+            return logsInRange;
         }
 
-        return result;
+        std::time_t startTime = std::mktime(&startTm);
+        std::time_t endTime = std::mktime(&endTm);
+
+        for (const Log& log : logs) {
+            std::tm logTm = {};
+            std::istringstream logStream(log.getYear() + " " + log.getMonth() + " " + log.getDay() + " " + log.getTime());
+            logStream >> std::get_time(&logTm, "%Y %b %d %T");
+            if (!logStream.fail()) {
+                std::time_t logTime = std::mktime(&logTm);
+                if (logTime >= startTime && logTime <= endTime) {
+                    logsInRange.push_back(log);
+                }
+            }
+        }
+        return logsInRange;
     }
+
+    static void displayLogsInRange(const std::vector<Log>& logs) {
+        std::cout << "========================================================================" << std::endl;
+        std::cout << "Logs within the specified date range:" << std::endl;
+        std::cout << "========================================================================" << std::endl;
+        std::cout << "  Date       Time       IP Address     Message" << std::endl;
+        std::cout << "------------------------------------------------------------------------" << std::endl;
+
+        for (const Log& log : logs) {
+            std::cout << log.getMonth() << " " << log.getDay() << ", " << log.getYear() << "  ";
+            std::cout << log.getTime() << "  " << log.getIP() << "  " << log.getMessage() << std::endl;
+        }
+
+        std::cout << "========================================================================" << std::endl;
+    }
+
+
+    static void writeLogsToFile(const std::vector<Log>& logs, const std::string& filename) {
+        std::ofstream outputFile(filename);
+        if (!outputFile.is_open()) {
+            std::cerr << "Error: Could not open file for writing." << std::endl;
+            return;
+        }
+
+        for (const Log& log : logs) {
+            outputFile << log.getMonth() << " " << log.getDay() << " " << log.getYear() << " "
+                       << log.getTime() << " " << log.getIP() << " " << log.getMessage() << std::endl;
+        }
+
+        outputFile.close();
+    }
+        
 };

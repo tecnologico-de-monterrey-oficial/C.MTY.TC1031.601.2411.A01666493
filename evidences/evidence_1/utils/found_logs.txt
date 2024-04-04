@@ -1,0 +1,28 @@
+Jan 01 2022 04:13:14 10.14.1.128  Human error
+Jan 01 2022 04:57:42 10.14.135.3  Weak or easily guessable passwords
+Jan 01 2022 07:11:36 10.14.222.193  Human error
+Jan 01 2022 11:19:12 10.14.167.32  Data corruption
+Jan 01 2022 13:02:01 10.14.158.248  Unencrypted communication
+Jan 01 2022 14:39:56 10.14.61.75  Security breaches
+Jan 01 2022 16:08:11 10.14.36.14  Load balancing issues
+Jan 01 2022 17:27:06 10.14.133.190  Human error
+Jan 01 2022 18:25:27 10.14.19.229  Load balancing issues
+Jan 01 2022 19:10:24 10.14.152.65  Load balancing issues
+Jan 01 2022 22:38:39 10.14.155.244  Social engineering attacks
+Jan 01 2022 22:47:32 10.14.223.107  Data corruption
+Jan 01 2022 23:50:42 10.14.160.239  Weak or easily guessable passwords
+Jan 01 2022 23:53:25 10.14.230.32  Application error
+Jan 02 2022 03:08:17 10.14.76.167  SQL injection
+Jan 02 2022 04:00:06 10.14.247.46  Application error
+Jan 02 2022 04:53:14 10.14.63.191  Network connectivity issues
+Jan 02 2022 06:05:08 10.14.201.66  Network connectivity issues
+Jan 02 2022 06:29:25 10.14.98.62  Security breaches
+Jan 02 2022 07:48:03 10.14.113.67  Security breaches
+Jan 02 2022 17:46:17 10.14.251.206  Social engineering attacks
+Jan 02 2022 18:46:35 10.14.226.195  Broken authentication and session management
+Jan 02 2022 19:46:36 10.14.43.82  Unencrypted communication
+Jan 02 2022 20:43:39 10.14.243.199  Security breaches
+Jan 03 2022 00:14:22 10.14.104.31  Data corruption
+Jan 03 2022 01:40:21 10.14.66.222  Human error
+Jan 03 2022 02:18:21 10.14.199.206  Data corruption
+Jan 03 2022 05:26:30 10.14.181.223  Data corruption
