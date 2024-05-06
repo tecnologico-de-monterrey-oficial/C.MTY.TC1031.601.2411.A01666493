@@ -16,7 +16,7 @@ public:
         if (it != monthMap.end()) {
             return it->second;
         }
-        std::cout << "Month not found in map!" << std::endl; // Impresión añadida
+        std::cout << "Month not found in map!" << std::endl;
         return "00";
     }
 };
@@ -310,7 +310,6 @@ private:
         Node* tempHead = nullptr;
 
         while (head1 != nullptr && head2 != nullptr) {
-            // Comparar las fechas y horas para decidir qué nodo se insertará primero
             if (head1->data.getKey() <= head2->data.getKey()) {
                 if (tempHead == nullptr) {
                     tempHead = head1;
