@@ -1,4 +1,4 @@
-# Documentación de la Evidencia 2 - Actividad Integral de Estructuras de Datos Lineales
+# Documentación de la Evidencia 2 - Actividad Integral de Estructuras de Datos Lineales Jesus Raul Jimenez Perez - A01666493
 
 En esta actividad integral, se desarrollará una aplicación para manipular datos almacenados en un archivo de texto siguiendo ciertas especificaciones. La aplicación debe cumplir con varios requisitos funcionales y además se espera una reflexión individual sobre la importancia y eficiencia de las estructuras de datos lineales utilizadas.
 
